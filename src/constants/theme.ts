@@ -34,3 +34,4 @@ export const DARK_THEME: Theme = {
   inputBg: '#334155',
 };
 
+export const FILTERS = ['All', 'Active', 'Completed'] as const;
