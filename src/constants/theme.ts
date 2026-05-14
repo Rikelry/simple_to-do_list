@@ -21,3 +21,16 @@ export const LIGHT_THEME: Theme = {
   accentText: '#FFFFFF',
   inputBg: '#FFFFFF',
 };
+
+export const DARK_THEME: Theme = {
+  bg: '#0F172A',
+  card: '#1E293B',
+  cardSoft: '#334155',
+  text: '#F8FAFC',
+  subText: '#CBD5E1',
+  border: '#334155',
+  accent: '#94A3B8',
+  accentText: '#0F172A',
+  inputBg: '#334155',
+};
+
