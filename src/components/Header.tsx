@@ -7,7 +7,7 @@ type HeaderProps = {
     onToggleTheme: () => void;
 };
 
-export function Header({ theme, isDark, onToggleTheme }: HeaderProps) {
+export function Header({ theme, onToggleTheme }: HeaderProps) {
     return (
         <header
             style={{
