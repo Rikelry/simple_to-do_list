@@ -45,6 +45,41 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                 {task.done ? '✓' : ''}
             </button>
 
+            <span
+                title={task.title}
+                style={{
+                    flex: 1,
+                    fontSize: 17,
+                    marginRight: 12,
+                    color: task.done ? theme.subText : theme.text,
+                    textDecoration: task.done ? 'line-through' : 'none',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                }}
+            >
+                {task.title}
+            </span>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <button
+                    type="button"
+                    onClick={() => onEdit(task)}
+                    aria-label="Editar tarefa"
+                    style={iconButton(theme)}
+                >
+                    ✎
+                </button>
+
+                <button
+                    type="button"
+                    onClick={() => onDelete(task.id)}
+                    aria-label="Excluir tarefa"
+                    style={iconButton(theme)}
+                >
+                    🗑
+                </button>
+            </div>
         </li>
-    )
+    );
 }
