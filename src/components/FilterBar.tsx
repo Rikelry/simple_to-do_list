@@ -40,6 +40,10 @@ export function FilterBar({ theme, filter, tasksLeft, onChangeFilter }: FilterBa
                     {item}
                 </button>
             ))}
+
+            <span style={{ marginLeft: 'auto', fontSize: 14, color: theme.subText }}>
+                {tasksLeft} tasks left
+            </span>
         </div>
-    )
+    );
 }
