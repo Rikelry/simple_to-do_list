@@ -13,4 +13,26 @@ import { EditTaskModal } from './components/EditTaskModal';
 export default function App() {
     const [isDark, setIsDark] = useState(false);
     const theme = isDark ? DARK_THEME : LIGHT_THEME;
+
+    const {
+        tasks,
+        allTasks,
+        remainingTasks,
+        filter,
+        setFilter,
+        input,
+        setInput,
+        addTask,
+        toggleTask,
+        requestDeleteTask,
+        openEditTask,
+        clearCompleted,
+        editingTask,
+        editText,
+        setEditText,
+        saveEditTask,
+        closeEditTask,
+    } = useTasks();
+
+    const hasAnyTask = allTasks.length > 0;
 }
