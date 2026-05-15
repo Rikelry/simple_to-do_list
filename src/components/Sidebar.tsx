@@ -54,3 +54,19 @@ export function Sidebar({
         </aside>
     );
 }
+
+function buttonBase(theme: Theme, active: boolean): React.CSSProperties {
+  return {
+    width: 52,
+    height: 52,
+    borderRadius: 16,
+    border: 'none',
+    backgroundColor: active ? theme.bg : 'transparent',
+    color: theme.text,
+    fontSize: 24,
+    cursor: 'pointer',
+    display: 'grid',
+    placeItems: 'center',
+    padding: 0,
+  };
+}
