@@ -9,3 +9,7 @@ function makeId(): string {
 function askConfirm(title: string, message: string): boolean {
   return window.confirm(`${title}\n\n${message}`);
 }
+
+export function useTasks() {
+    
+}
