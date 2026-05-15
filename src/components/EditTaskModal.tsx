@@ -8,3 +8,18 @@ type EditTaskModalProps = {
     onClose: () => void;
     onSave: () => void;
 };
+
+export function EditTaskModal({
+    visible,
+    theme,
+    value,
+    onChangeText,
+    onClose,
+    onSave,
+}: EditTaskModalProps) {
+    if (!visible) return null;
+
+    return (
+
+  )
+}
