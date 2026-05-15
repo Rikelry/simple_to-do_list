@@ -44,4 +44,9 @@ export function useTasks() {
             console.error('Erro ao salvar tarefas:', error);
         });
     }, [tasks, isHydrated]);
+
+    const remainingTasks = useMemo(
+        () => tasks.filter((task) => !task.done).length,
+        [tasks],
+    );
 }
