@@ -9,3 +9,30 @@ type TaskListProps = {
     onEdit: (task: Task) => void;
     onDelete: (id: string) => void;
 };
+
+export function TaskList({ theme, tasks, onToggle, onEdit, onDelete }: TaskListProps) {
+    return (
+        <ul
+            style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                paddingBottom: 24,
+                maxWidth: 760,
+                width: '100%',
+                alignSelf: 'center',
+            }}
+        >
+            {tasks.map((task) => (
+                <TaskItem
+                    key={task.id}
+                    theme={theme}
+                    task={task}
+                    onToggle={onToggle}
+                    onEdit={onEdit}
+                    onDelete={onDelete}
+                />
+            ))}
+        </ul>
+    );
+}
