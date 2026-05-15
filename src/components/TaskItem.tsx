@@ -60,7 +60,7 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
             >
                 {task.title}
             </span>
-            
+
             <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <button
                     type="button"
@@ -82,4 +82,16 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
             </div>
         </li>
     );
+}
+
+function iconButton(theme: Theme): React.CSSProperties {
+    return {
+        border: 'none',
+        background: 'transparent',
+        color: theme.text,
+        fontSize: 18,
+        cursor: 'pointer',
+        padding: 4,
+        lineHeight: 1,
+    };
 }
