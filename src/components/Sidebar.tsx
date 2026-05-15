@@ -1,6 +1,5 @@
 import type { Theme } from '../constants/theme';
-
-import sidebar_settings from '../assets/sidebar_settings.svg';
+import { Icon } from '@iconify/react';
 
 type SidebarProps = {
     theme: Theme;
@@ -9,16 +8,11 @@ type SidebarProps = {
     onClearCompleted: () => void;
 };
 
-export function Sidebar({
-    theme,
-    isDark,
-    onToggleTheme,
-    onClearCompleted,
-}: SidebarProps) {
+export function Sidebar({ theme, onToggleTheme, onClearCompleted, }: SidebarProps) {
     return (
         <aside
             style={{
-                width: 88,
+                width: 75,
                 paddingTop: 18,
                 paddingInline: 14,
                 borderRight: `1px solid ${theme.border}`,
@@ -35,24 +29,24 @@ export function Sidebar({
                 style={buttonBase(theme, false)}
                 onClick={() => void 0}
             >
-                ☰
+                <Icon icon="mdi:menu" />
             </button>
 
             <div style={{ width: '100%', height: 1, backgroundColor: theme.border, marginBottom: 18 }} />
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 18, alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 15, alignItems: 'center' }}>
                 <div style={activeItem(theme)} aria-hidden="true">
-                    ☐
+                    <Icon icon="mdi:account-circle-outline" />
                 </div>
 
                 <button type="button" style={buttonBase(theme, false)} onClick={onClearCompleted}>
-                    🗑
+                    <button type="button" style={buttonBase(theme, false)} onClick={onToggleTheme}>
+                    <Icon icon="mdi:format-list-checks" />
+                    </button>
                 </button>
 
                 <button type="button" style={buttonBase(theme, false)} onClick={onToggleTheme}>
-                    {isDark
-                    ? <img src={sidebar_settings} alt="" style={{ width: 18, height: 25 }} />
-                    : <img src={sidebar_settings} alt="" style={{ width: 18, height: 25 }} />}
+                    <Icon icon="mdi:cog" />
                 </button>
             </div>
         </aside>

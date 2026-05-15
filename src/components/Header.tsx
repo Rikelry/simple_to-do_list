@@ -16,7 +16,7 @@ export function Header({ theme, isDark, onToggleTheme }: HeaderProps) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                marginBottom: 38,
+                marginBottom: 40,
             }}
         >
             <h1 style={{ margin: 0, fontSize: 34, fontWeight: 700, color: theme.text }}>My Tasks</h1>

@@ -74,8 +74,8 @@ export default function App() {
                         ) : (
                             <EmptyState
                                 theme={theme}
-                                title="No tasks match this filter"
-                                text="Try switching between All, Active, and Completed."
+                                text1="Empty as my motivation on Monday 😅."
+                                text2="Let\'s start adding sttuf!"
                             />
                         )
                     ) : (

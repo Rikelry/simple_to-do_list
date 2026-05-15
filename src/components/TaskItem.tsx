@@ -1,8 +1,6 @@
+import { Icon } from '@iconify/react';
 import type { Theme } from '../constants/theme';
 import type { Task } from '../types/task';
-
-import iconPencil from '../assets/iconPencil.svg';
-import iconTrash from '../assets/iconTrash.svg';
 
 type TaskItemProps = {
     theme: Theme;
@@ -45,7 +43,10 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                     flexShrink: 0,
                 }}
             >
-                {task.done ? '✓' : ''}
+                {task.done 
+                ? <Icon icon="mdi:checkbox-marked" />
+                : <Icon icon="mdi:checkbox-blank-outline" />
+                }
             </button>
 
             <span
@@ -64,31 +65,13 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                 {task.title}
             </span>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <button
-                    type="button"
-                    onClick={() => onEdit(task)}
-                    aria-label="Editar tarefa"
-                    style={iconButton(theme)}
-                >
-                    <img
-                        src={iconPencil}
-                        alt=""
-                        style={{ width: 18, height: 18 }}
-                    />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
+                <button type="button" onClick={() => onEdit(task)} aria-label="Editar tarefa" style={iconButton(theme)}>
+                    <Icon icon="mdi:pencil-outline" />
                 </button>
 
-                <button
-                    type="button"
-                    onClick={() => onDelete(task.id)}
-                    aria-label="Excluir tarefa"
-                    style={iconButton(theme)}
-                >
-                    <img
-                        src={iconTrash}
-                        alt=""
-                        style={{ width: 18, height: 18 }}
-                    />
+                <button type="button" onClick={() => onDelete(task.id)} aria-label="Excluir tarefa" style={iconButton(theme)}>
+                    <Icon icon="mdi:trash-can-outline" />
                 </button>
             </div>
         </li >
