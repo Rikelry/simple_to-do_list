@@ -112,4 +112,18 @@ export function useTasks() {
         setEditingTask(null);
         setEditText('');
     }, []);
+
+    const clearCompleted = useCallback(() => {
+        const hasCompleted = tasks.some((task) => task.done);
+
+        if (!hasCompleted) {
+            window.alert('Não há tarefas concluídas no momento.');
+            return;
+        }
+
+        const confirmed = askConfirm('Limpar concluídas', 'Remover todas as tarefas concluídas?');
+        if (!confirmed) return;
+
+        setTasks((current) => current.filter((task) => !task.done));
+    }, [tasks]);
 }
