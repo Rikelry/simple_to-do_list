@@ -70,3 +70,10 @@ function buttonBase(theme: Theme, active: boolean): React.CSSProperties {
     padding: 0,
   };
 }
+
+function activeItem(theme: Theme): React.CSSProperties {
+  return {
+    ...buttonBase(theme, true),
+    cursor: 'default',
+  };
+}
