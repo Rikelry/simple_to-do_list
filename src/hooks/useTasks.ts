@@ -55,4 +55,22 @@ export function useTasks() {
         if (filter === 'Completed') return tasks.filter((task) => task.done);
         return tasks;
     }, [tasks, filter]);
+
+    const addTask = useCallback(() => {
+        const title = input.trim();
+
+        if (!title) {
+            window.alert('Digite uma tarefa. O campo não pode ficar vazio.');
+            return;
+        }
+
+        const newTask: Task = {
+            id: makeId(),
+            title,
+            done: false,
+        };
+
+        setTasks((current) => [newTask, ...current]);
+        setInput('');
+    }, [input]);
 }
