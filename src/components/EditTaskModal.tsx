@@ -96,3 +96,18 @@ export function EditTaskModal({
         </div>
     );
 }
+
+function modalBtn(backgroundColor: string, color: string): React.CSSProperties {
+    return {
+        minWidth: 92,
+        height: 44,
+        borderRadius: 12,
+        border: 'none',
+        backgroundColor,
+        color,
+        cursor: 'pointer',
+        fontSize: 15,
+        fontWeight: 700,
+        paddingInline: 12,
+    };
+}
