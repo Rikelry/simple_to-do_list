@@ -79,4 +79,11 @@ export function useTasks() {
             current.map((task) => (task.id === taskId ? { ...task, done: !task.done } : task)),
         );
     }, []);
+
+    const requestDeleteTask = useCallback((taskId: string) => {
+        const confirmed = askConfirm('Excluir tarefa', 'Deseja remover esta tarefa?');
+        if (!confirmed) return;
+
+        setTasks((current) => current.filter((task) => task.id !== taskId));
+    }, []);
 }
