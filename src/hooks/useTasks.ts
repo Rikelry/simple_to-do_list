@@ -107,4 +107,9 @@ export function useTasks() {
         setEditingTask(null);
         setEditText('');
     }, [editText, editingTask]);
+
+    const closeEditTask = useCallback(() => {
+        setEditingTask(null);
+        setEditText('');
+    }, []);
 }
