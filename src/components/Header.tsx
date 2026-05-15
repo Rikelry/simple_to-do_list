@@ -1,7 +1,5 @@
+import { Icon } from '@iconify/react';
 import type { Theme } from '../constants/theme';
-
-import iconSun from '../assets/iconSun.svg';
-import iconMoon from '../assets/iconMoon.svg';
 
 type HeaderProps = {
     theme: Theme;
@@ -13,19 +11,31 @@ export function Header({ theme, isDark, onToggleTheme }: HeaderProps) {
     return (
         <header
             style={{
+                position: 'relative',
                 display: 'flex',
+                justifyContent: 'center',
                 alignItems: 'center',
-                justifyContent: 'space-between',
                 marginBottom: 40,
             }}
         >
-            <h1 style={{ margin: 0, fontSize: 34, fontWeight: 700, color: theme.text }}>My Tasks</h1>
+            <h1
+                style={{
+                    margin: 0,
+                    fontSize: 34,
+                    fontWeight: 700,
+                    color: theme.text,
+                }}
+            >
+                My Tasks
+            </h1>
 
             <button
                 type="button"
                 onClick={onToggleTheme}
                 aria-label="Alternar tema"
                 style={{
+                    position: 'absolute',
+                    right: 0,
                     border: 'none',
                     background: 'transparent',
                     color: theme.text,
@@ -34,10 +44,7 @@ export function Header({ theme, isDark, onToggleTheme }: HeaderProps) {
                     padding: 6,
                 }}
             >
-                {isDark 
-                ? <img src={iconSun} alt="" style={{ width: 18, height: 25 }} />
-                : <img src={iconMoon} alt="" style={{ width: 18, height: 25 }} />
-                }
+                <Icon icon="mdi:theme-light-dark" />
             </button>
         </header>
     );
