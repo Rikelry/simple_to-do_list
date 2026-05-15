@@ -40,6 +40,24 @@ export function TaskComposer({ theme, value, onChangeText, onSubmit }: TaskCompo
                     boxSizing: 'border-box',
                 }}
             />
+
+            <button
+                type="button"
+                onClick={onSubmit}
+                style={{
+                    height: 52,
+                    paddingInline: 18,
+                    borderRadius: 12,
+                    border: 'none',
+                    backgroundColor: theme.accent,
+                    color: theme.accentText,
+                    cursor: 'pointer',
+                    fontSize: 16,
+                    fontWeight: 700,
+                }}
+            >
+                Add
+            </button>
         </div>
-    )
+    );
 }
