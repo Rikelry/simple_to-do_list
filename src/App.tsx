@@ -35,4 +35,63 @@ export default function App() {
     } = useTasks();
 
     const hasAnyTask = allTasks.length > 0;
+    
+    return (
+        <div style={{ minHeight: '100vh', backgroundColor: theme.bg, color: theme.text }}>
+            <div style={{ display: 'flex', minHeight: '100vh' }}>
+                <Sidebar
+                    theme={theme}
+                    isDark={isDark}
+                    onToggleTheme={() => setIsDark((current) => !current)}
+                    onClearCompleted={clearCompleted}
+                />
+
+                <main style={{ flex: 1, padding: '26px 20px 18px' }}>
+                    <Header
+                        theme={theme}
+                        isDark={isDark}
+                        onToggleTheme={() => setIsDark((current) => !current)}
+                    />
+
+                    <TaskComposer theme={theme} value={input} onChangeText={setInput} onSubmit={addTask} />
+
+                    <FilterBar
+                        theme={theme}
+                        filter={filter}
+                        tasksLeft={remainingTasks}
+                        onChangeFilter={setFilter}
+                    />
+
+                    {hasAnyTask ? (
+                        tasks.length > 0 ? (
+                            <TaskList
+                                theme={theme}
+                                tasks={tasks}
+                                onToggle={toggleTask}
+                                onEdit={openEditTask}
+                                onDelete={requestDeleteTask}
+                            />
+                        ) : (
+                            <EmptyState
+                                theme={theme}
+                                title="No tasks match this filter"
+                                text="Try switching between All, Active, and Completed."
+                            />
+                        )
+                    ) : (
+                        <EmptyState theme={theme} />
+                    )}
+                </main>
+            </div>
+
+            <EditTaskModal
+                visible={editingTask !== null}
+                theme={theme}
+                value={editText}
+                onChangeText={setEditText}
+                onClose={closeEditTask}
+                onSave={saveEditTask}
+            />
+        </div>
+    );
 }
