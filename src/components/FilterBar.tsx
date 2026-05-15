@@ -21,6 +21,25 @@ export function FilterBar({ theme, filter, tasksLeft, onChangeFilter }: FilterBa
                 alignSelf: 'center',
                 flexWrap: 'wrap',
             }}
-        ></div>
+        >
+            {FILTERS.map((item) => (
+                <button
+                    key={item}
+                    type="button"
+                    onClick={() => onChangeFilter(item)}
+                    style={{
+                        border: 'none',
+                        background: 'transparent',
+                        color: filter === item ? theme.text : theme.subText,
+                        fontWeight: filter === item ? 700 : 500,
+                        fontSize: 16,
+                        cursor: 'pointer',
+                        padding: 0,
+                    }}
+                >
+                    {item}
+                </button>
+            ))}
+        </div>
     )
 }
