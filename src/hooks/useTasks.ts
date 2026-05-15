@@ -86,4 +86,9 @@ export function useTasks() {
 
         setTasks((current) => current.filter((task) => task.id !== taskId));
     }, []);
+
+    const openEditTask = useCallback((task: Task) => {
+        setEditingTask(task);
+        setEditText(task.title);
+    }, []);
 }
