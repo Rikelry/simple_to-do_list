@@ -17,4 +17,31 @@ export function useTasks() {
     const [editingTask, setEditingTask] = useState<Task | null>(null);
     const [editText, setEditText] = useState('');
     const [isHydrated, setIsHydrated] = useState(false);
+
+    useEffect(() => {
+        let mounted = true;
+
+        void (async () => {
+            try {
+                const loadedTasks = await taskStorage.load();
+                if (mounted) setTasks(loadedTasks);
+            } catch (error) {
+                console.error('Erro ao carregar tarefas:', error);
+            } finally {
+                if (mounted) setIsHydrated(true);
+            }
+        })();
+
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isHydrated) return;
+
+        void taskStorage.save(tasks).catch((error) => {
+            console.error('Erro ao salvar tarefas:', error);
+        });
+    }, [tasks, isHydrated]);
 }
