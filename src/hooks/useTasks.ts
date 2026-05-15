@@ -49,4 +49,10 @@ export function useTasks() {
         () => tasks.filter((task) => !task.done).length,
         [tasks],
     );
+
+    const visibleTasks = useMemo(() => {
+        if (filter === 'Active') return tasks.filter((task) => !task.done);
+        if (filter === 'Completed') return tasks.filter((task) => task.done);
+        return tasks;
+    }, [tasks, filter]);
 }
