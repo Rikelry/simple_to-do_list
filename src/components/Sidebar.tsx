@@ -1,5 +1,7 @@
 import type { Theme } from '../constants/theme';
 
+import sidebar_settings from '../assets/sidebar_settings.svg';
+
 type SidebarProps = {
     theme: Theme;
     isDark: boolean;
@@ -48,7 +50,9 @@ export function Sidebar({
                 </button>
 
                 <button type="button" style={buttonBase(theme, false)} onClick={onToggleTheme}>
-                    {isDark ? '☀' : '☾'}
+                    {isDark
+                    ? <img src={sidebar_settings} alt="" style={{ width: 18, height: 25 }} />
+                    : <img src={sidebar_settings} alt="" style={{ width: 18, height: 25 }} />}
                 </button>
             </div>
         </aside>

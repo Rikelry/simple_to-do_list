@@ -56,7 +56,7 @@ export function TaskComposer({ theme, value, onChangeText, onSubmit }: TaskCompo
                     fontWeight: 700,
                 }}
             >
-                Add
+                + Add
             </button>
         </div>
     );

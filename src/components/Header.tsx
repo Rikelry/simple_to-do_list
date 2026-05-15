@@ -1,5 +1,8 @@
 import type { Theme } from '../constants/theme';
 
+import iconSun from '../assets/iconSun.svg';
+import iconMoon from '../assets/iconMoon.svg';
+
 type HeaderProps = {
     theme: Theme;
     isDark: boolean;
@@ -31,7 +34,10 @@ export function Header({ theme, isDark, onToggleTheme }: HeaderProps) {
                     padding: 6,
                 }}
             >
-                {isDark ? '☀' : '☾'}
+                {isDark 
+                ? <img src={iconSun} alt="" style={{ width: 18, height: 25 }} />
+                : <img src={iconMoon} alt="" style={{ width: 18, height: 25 }} />
+                }
             </button>
         </header>
     );

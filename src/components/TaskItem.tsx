@@ -1,6 +1,9 @@
 import type { Theme } from '../constants/theme';
 import type { Task } from '../types/task';
 
+import iconPencil from '../assets/iconPencil.svg';
+import iconTrash from '../assets/iconTrash.svg';
+
 type TaskItemProps = {
     theme: Theme;
     task: Task;
@@ -68,7 +71,11 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                     aria-label="Editar tarefa"
                     style={iconButton(theme)}
                 >
-                    ✎
+                    <img
+                        src={iconPencil}
+                        alt=""
+                        style={{ width: 18, height: 18 }}
+                    />
                 </button>
 
                 <button
@@ -77,10 +84,14 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                     aria-label="Excluir tarefa"
                     style={iconButton(theme)}
                 >
-                    🗑
+                    <img
+                        src={iconTrash}
+                        alt=""
+                        style={{ width: 18, height: 18 }}
+                    />
                 </button>
             </div>
-        </li>
+        </li >
     );
 }
 
