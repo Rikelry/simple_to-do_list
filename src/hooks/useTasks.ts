@@ -73,4 +73,10 @@ export function useTasks() {
         setTasks((current) => [newTask, ...current]);
         setInput('');
     }, [input]);
+
+    const toggleTask = useCallback((taskId: string) => {
+        setTasks((current) =>
+            current.map((task) => (task.id === taskId ? { ...task, done: !task.done } : task)),
+        );
+    }, []);
 }
