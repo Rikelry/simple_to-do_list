@@ -126,4 +126,25 @@ export function useTasks() {
 
         setTasks((current) => current.filter((task) => !task.done));
     }, [tasks]);
+
+    return {
+        tasks: visibleTasks,
+        allTasks: tasks,
+        totalTasks: tasks.length,
+        remainingTasks,
+        filter,
+        setFilter,
+        input,
+        setInput,
+        addTask,
+        toggleTask,
+        requestDeleteTask,
+        openEditTask,
+        clearCompleted,
+        editingTask,
+        editText,
+        setEditText,
+        saveEditTask,
+        closeEditTask,
+    };
 }
