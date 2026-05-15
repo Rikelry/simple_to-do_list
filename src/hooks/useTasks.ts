@@ -91,4 +91,20 @@ export function useTasks() {
         setEditingTask(task);
         setEditText(task.title);
     }, []);
+
+    const saveEditTask = useCallback(() => {
+        if (!editingTask) return;
+
+        const title = editText.trim();
+        if (!title) {
+            window.alert('Digite um título válido para salvar a tarefa.');
+            return;
+        }
+
+        setTasks((current) =>
+            current.map((task) => (task.id === editingTask.id ? { ...task, title } : task)),
+        );
+        setEditingTask(null);
+        setEditText('');
+    }, [editText, editingTask]);
 }
