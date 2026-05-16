@@ -23,7 +23,7 @@ export function EmptyState({
                 minHeight: 280,
             }}
         >
-            <img src="src/assets/selfie.svg" width={500}/>   
+            <img src="public/selfie.svg" width={500}/>   
             <div
             style={{
                 flexDirection: 'column'
