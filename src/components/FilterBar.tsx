@@ -14,11 +14,12 @@ export function FilterBar({ theme, filter, tasksLeft, onChangeFilter }: FilterBa
             style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: 12,
                 maxWidth: 760,
                 width: '100%',
+                marginInline: 'auto',
                 marginBottom: 16,
-                alignSelf: 'center',
                 flexWrap: 'wrap',
             }}
         >
@@ -41,7 +42,12 @@ export function FilterBar({ theme, filter, tasksLeft, onChangeFilter }: FilterBa
                 </button>
             ))}
 
-            <span style={{ marginLeft: 'auto', fontSize: 14, color: theme.subText }}>
+            <span
+                style={{
+                    fontSize: 14,
+                    color: theme.subText,
+                }}
+            >
                 {tasksLeft} tasks left
             </span>
         </div>
