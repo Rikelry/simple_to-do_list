@@ -11,15 +11,13 @@ export function TaskComposer({ theme, value, onChangeText, onSubmit }: TaskCompo
     return (
         <div
             style={{
-                flex: 1,
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
                 gap: 14,
                 marginBottom: 20,
                 maxWidth: 760,
                 width: '100%',
-                justifySelf: 'center',
+                marginInline: 'auto',
             }}
         >
             <input
