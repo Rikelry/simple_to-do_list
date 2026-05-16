@@ -21,17 +21,20 @@ export function Sidebar({
         <aside
             style={{
                 width: expanded ? 200 : 75,
-                transition: 'width 0.2s ease',
-                overflow: 'hidden',
+                transition: 'width 0.25s ease',
 
-                paddingTop: 18,
-                paddingInline: 14,
-                borderRight: `1px solid ${theme.border}`,
-                backgroundColor: theme.card,
+                height: '100vh',
+                overflow: 'hidden',
 
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
+                alignItems: 'stretch',
+
+                paddingTop: 18,
+                paddingInline: 12,
+
+                borderRight: `1px solid ${theme.border}`,
+                backgroundColor: theme.card,
                 boxSizing: 'border-box',
             }}
         >
@@ -39,25 +42,39 @@ export function Sidebar({
             <button
                 type="button"
                 aria-label="Menu"
-                style={buttonBase(theme, false)}
                 onClick={() => setExpanded((v) => !v)}
+                style={buttonBase(theme, false, true)}
             >
                 <Icon icon="mdi:menu" width={ICON_SIZE} height={ICON_SIZE} />
+                {expanded && <span style={{ marginLeft: 10 }}>Menu</span>}
             </button>
 
-            <div style={{ width: '100%', height: 1, backgroundColor: theme.border, marginBottom: 18 }} />
+            <div
+                style={{
+                    width: '100%',
+                    height: 1,
+                    backgroundColor: theme.border,
+                    margin: '12px 0 18px',
+                }}
+            />
 
             {/* ITEMS */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 15, alignItems: 'center' }}>
-
-                <div style={activeItem(theme)}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 12,
+                    width: '100%',
+                }}
+            >
+                <div style={activeItem(theme, expanded)}>
                     <Icon icon="mdi:account-circle-outline" width={ICON_SIZE} height={ICON_SIZE} />
                     {expanded && <span style={{ marginLeft: 10 }}>My Tasks</span>}
                 </div>
 
                 <button
                     type="button"
-                    style={buttonBase(theme, false)}
+                    style={buttonBase(theme, false, expanded)}
                     onClick={onClearCompleted}
                 >
                     <Icon icon="mdi:format-list-checks" width={ICON_SIZE} height={ICON_SIZE} />
@@ -66,19 +83,18 @@ export function Sidebar({
 
                 <button
                     type="button"
-                    style={buttonBase(theme, false)}
+                    style={buttonBase(theme, false, expanded)}
                     onClick={onToggleTheme}
                 >
                     <Icon icon="mdi:cog" width={ICON_SIZE} height={ICON_SIZE} />
                     {expanded && <span style={{ marginLeft: 10 }}>Theme</span>}
                 </button>
-
             </div>
         </aside>
     );
 }
 
-function buttonBase(theme: Theme, active: boolean): React.CSSProperties {
+function buttonBase(theme: Theme, active: boolean, expanded: boolean): React.CSSProperties {
     return {
         width: '100%',
         height: 52,
@@ -90,14 +106,14 @@ function buttonBase(theme: Theme, active: boolean): React.CSSProperties {
 
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        gap: 10,
+        justifyContent: expanded ? 'flex-start' : 'center',
 
-        padding: 0,
+        gap: 10,
+        paddingInline: 14,
     };
 }
 
-function activeItem(theme: Theme): React.CSSProperties {
+function activeItem(theme: Theme, expanded: boolean): React.CSSProperties {
     return {
         width: '100%',
         height: 52,
@@ -107,7 +123,9 @@ function activeItem(theme: Theme): React.CSSProperties {
 
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: expanded ? 'flex-start' : 'center',
+
         gap: 10,
+        paddingInline: 14,
     };
 }
