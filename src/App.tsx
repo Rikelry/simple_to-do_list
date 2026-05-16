@@ -35,7 +35,7 @@ export default function App() {
     } = useTasks();
 
     const hasAnyTask = allTasks.length > 0;
-    
+
     return (
         <div style={{ minHeight: '100vh', backgroundColor: theme.bg, color: theme.text }}>
             <div style={{ display: 'flex', minHeight: '100vh' }}>
@@ -53,14 +53,21 @@ export default function App() {
                         onToggleTheme={() => setIsDark((current) => !current)}
                     />
 
-                    <TaskComposer theme={theme} value={input} onChangeText={setInput} onSubmit={addTask} />
-
-                    <FilterBar
-                        theme={theme}
-                        filter={filter}
-                        tasksLeft={remainingTasks}
-                        onChangeFilter={setFilter}
+                    <TaskComposer 
+                    theme={theme} 
+                    value={input} 
+                    onChangeText={setInput} 
+                    onSubmit={addTask} 
                     />
+
+                    {hasAnyTask && (
+                        <FilterBar
+                            theme={theme}
+                            filter={filter}
+                            tasksLeft={remainingTasks}
+                            onChangeFilter={setFilter}
+                        />
+                    )}
 
                     {hasAnyTask ? (
                         tasks.length > 0 ? (
