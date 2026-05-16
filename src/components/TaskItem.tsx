@@ -10,6 +10,8 @@ type TaskItemProps = {
     onDelete: (id: string) => void;
 };
 
+const ICON_SIZE = 25;
+
 export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemProps) {
     return (
         <li
@@ -30,23 +32,28 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                 onClick={() => onToggle(task.id)}
                 aria-label={task.done ? 'Marcar como não concluída' : 'Marcar como concluída'}
                 style={{
-                    width: 22,
-                    height: 22,
-                    borderRadius: 4,
-                    border: `2px solid ${theme.text}`,
-                    backgroundColor: task.done ? theme.text : 'transparent',
-                    color: theme.bg,
+                    border: 'none',
+                    background: 'transparent',
                     cursor: 'pointer',
-                    display: 'grid',
-                    placeItems: 'center',
+                    padding: 0,
                     marginRight: 16,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     flexShrink: 0,
+                    color: task.done ? theme.text : theme.subText,
+                    transition: 'transform 1s ease',
+
                 }}
             >
-                {task.done
-                    ? <Icon icon="mdi:checkbox-marked" />
-                    : <Icon icon="mdi:checkbox-blank-outline" />
-                }
+                <Icon
+                    icon={task.done
+                        ? "mdi:checkbox-marked"
+                        : "mdi:checkbox-blank-outline"
+                    }
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                />
             </button>
 
             <span
@@ -67,11 +74,11 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
                 <button type="button" onClick={() => onEdit(task)} aria-label="Editar tarefa" style={iconButton(theme)}>
-                    <Icon icon="mdi:pencil-outline" />
+                    <Icon icon="mdi:pencil-outline" width={ICON_SIZE} height={ICON_SIZE} />
                 </button>
 
                 <button type="button" onClick={() => onDelete(task.id)} aria-label="Excluir tarefa" style={iconButton(theme)}>
-                    <Icon icon="mdi:trash-can-outline" />
+                    <Icon icon="mdi:trash-can-outline" width={ICON_SIZE} height={ICON_SIZE} />
                 </button>
             </div>
         </li >
