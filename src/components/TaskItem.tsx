@@ -43,9 +43,9 @@ export function TaskItem({ theme, task, onToggle, onEdit, onDelete }: TaskItemPr
                     flexShrink: 0,
                 }}
             >
-                {task.done 
-                ? <Icon icon="mdi:checkbox-marked" />
-                : <Icon icon="mdi:checkbox-blank-outline" />
+                {task.done
+                    ? <Icon icon="mdi:checkbox-marked" />
+                    : <Icon icon="mdi:checkbox-blank-outline" />
                 }
             </button>
 

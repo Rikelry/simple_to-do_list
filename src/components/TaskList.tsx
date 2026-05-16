@@ -20,7 +20,7 @@ export function TaskList({ theme, tasks, onToggle, onEdit, onDelete }: TaskListP
                 paddingBottom: 24,
                 maxWidth: 760,
                 width: '100%',
-                alignSelf: 'center',
+                marginInline: 'auto',
             }}
         >
             {tasks.map((task) => (
