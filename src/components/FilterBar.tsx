@@ -14,34 +14,53 @@ export function FilterBar({ theme, filter, tasksLeft, onChangeFilter }: FilterBa
             style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                gap: 12,
+                justifyContent: 'space-between',
+
                 maxWidth: 760,
                 width: '100%',
                 marginInline: 'auto',
                 marginBottom: 16,
-                flexWrap: 'wrap',
+
+                paddingLeft: 10,
+                paddingRight: 10,
             }}
         >
-            {FILTERS.map((item) => (
-                <button
-                    key={item}
-                    type="button"
-                    onClick={() => onChangeFilter(item)}
-                    style={{
-                        border: 'none',
-                        background: 'transparent',
-                        color: filter === item ? theme.text : theme.subText,
-                        fontWeight: filter === item ? 700 : 500,
-                        fontSize: 16,
-                        cursor: 'pointer',
-                        padding: 0,
-                    }}
-                >
-                    {item}
-                </button>
-            ))}
+            {/* LEFT */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                {FILTERS.map((item, index) => (
+                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <button
+                            type="button"
+                            onClick={() => onChangeFilter(item)}
+                            style={{
+                                border: 'none',
+                                background: 'transparent',
+                                cursor: 'pointer',
 
+                                fontSize: 16,
+                                fontWeight: filter === item ? 700 : 500,
+                                color: filter === item ? theme.text : theme.subText,
+                            }}
+                        >
+                            {item}
+                        </button>
+
+                        {index < FILTERS.length - 1 && (
+                            <span
+                                style={{
+                                    color: theme.subText,
+                                    opacity: 0.5,
+                                    fontSize: 14,
+                                }}
+                            >
+                                |
+                            </span>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            {/* RIGHT */}
             <span
                 style={{
                     fontSize: 14,
