@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import type { Theme } from '../constants/theme';
-import avatar from "public/avatar.png";
+import avatar from '../../public/avatar.png';
 
 type SidebarProps = {
     theme: Theme;

@@ -1,5 +1,5 @@
 import type { Theme } from '../constants/theme';
-import selfie from "public/selfie.svg";
+import selfie from "../../public/selfie.svg";
 
 type EmptyStateProps = {
     theme: Theme;
