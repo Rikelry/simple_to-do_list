@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import type { Theme } from '../constants/theme';
+import avatar from "public/avatar.png";
 
 type SidebarProps = {
     theme: Theme;
@@ -60,7 +61,7 @@ export function Sidebar({ theme, onToggleTheme, onClearCompleted }: SidebarProps
                     <div style={profileCard(theme)}>
                         <div style={avatarWrap(theme)}>
                             <img
-                                src="public/avatar.png"
+                                src={avatar}
                                 alt="Jane Doe"
                                 style={avatarImage}
                             />

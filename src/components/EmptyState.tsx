@@ -1,4 +1,5 @@
 import type { Theme } from '../constants/theme';
+import selfie from "public/selfie.svg";
 
 type EmptyStateProps = {
     theme: Theme;
@@ -23,19 +24,22 @@ export function EmptyState({
                 minHeight: 280,
             }}
         >
-            <img src="public/selfie.svg" width={500}/>   
+            <img
+                src={selfie}
+                width={500}
+            />
             <div
-            style={{
-                flexDirection: 'column'
-            }}
+                style={{
+                    flexDirection: 'column'
+                }}
             >
-            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, color: theme.subText, textIndent: 65 ,textAlign: 'center', maxWidth: 360 }}>
-                {text1}
-            </p>
-            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, color: theme.subText, textIndent: -50, textAlign: 'center', maxWidth: 360 }}>
-                {text2}
-            </p>
-            
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, color: theme.subText, textIndent: 65, textAlign: 'center', maxWidth: 360 }}>
+                    {text1}
+                </p>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, color: theme.subText, textIndent: -50, textAlign: 'center', maxWidth: 360 }}>
+                    {text2}
+                </p>
+
             </div>
         </div>
     );
